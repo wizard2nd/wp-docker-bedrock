@@ -12,22 +12,22 @@ services:
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: password
-  memcached:
-    image: memcached:latest
-    restart: always
-  elasticsearch:
-    image: elasticsearch:5
-    restart: always
-    ports:
-      - "9200:9200"
-    volumes:
-      - "./config/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml"
-      - "./config/elasticsearch/plugins:/usr/share/elasticsearch/plugins"
+  # memcached:
+  #   image: memcached:latest
+  #   restart: always
+  # elasticsearch:
+  #   image: elasticsearch:5
+  #   restart: always
+  #   ports:
+  #     - "9200:9200"
+  #   volumes:
+  #     - "./config/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml"
+  #     - "./config/elasticsearch/plugins:/usr/share/elasticsearch/plugins"
   phpfpm:
     depends_on:
       - mysql
-      - memcached
-      - elasticsearch
+      # - memcached
+      # - elasticsearch
     volumes:
       - "./site/web:/var/www/html"
       - "./config/php-fpm/php.ini:/usr/local/etc/php/php.ini"
