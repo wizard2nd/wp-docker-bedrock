@@ -1,0 +1,3 @@
+[submodule "rizikove_kaceni_teplice"]
+	path = rizikove_kaceni_teplice
+	url = git@github.com:wizard2nd/rizikove_kaceni_teplice.git
