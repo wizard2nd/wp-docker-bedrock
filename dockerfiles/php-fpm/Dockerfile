@@ -16,6 +16,12 @@ RUN apt-get -y install \
     wget \
     vim
 
+WORKDIR ~/HOME
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar ./
+RUN chmod +x wp-cli.phar
+RUN ln -s wp-cli.phar /usr/bin/wp
+WORKDIR /var/www/html
+
 CMD ["php-fpm"]
 
 EXPOSE 9000
